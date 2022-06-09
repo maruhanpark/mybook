@@ -1,16 +1,16 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
-author:           HE Tao
-email:            sighingnow@gmail.com
+title:            Martin Funkquist
+longtitle:        Martin Funkquist
+author:           Martin Funkquist
+email:            martin.funkquist@gmail.com
 description: >
-  Build Jekyll site with the GitBook style.
+  Homepage and blog of Martin Funkquist
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+url:              'https://martin36.github.io'
+baseurl:          '/homepage'
 rss:              RSS
 
 toc:
