@@ -141,6 +141,10 @@
     color: inherit;
 }
 
+.posts-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 /* Custom font settings */
 

@@ -1,9 +1,8 @@
 ---
 title: About
-author: Tao He
-date: 2022-02-04
-category: Jekyll
+author: Martin Funkquist
+date: 2022-06-11
 layout: post
 ---
 
-This is an about page.
+

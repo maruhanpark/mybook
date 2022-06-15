@@ -54,3 +54,11 @@ regenerate:       true
 plugins:
   - jekyll-feed
   - jemoji
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

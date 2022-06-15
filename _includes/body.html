@@ -24,5 +24,19 @@
 
             {%- include search.html -%}
         </div>
+        {% if reversed_posts %}
+        {% if page.layout == "home" %}
+            <h1>Most recent posts</h1>
+            <div class="posts-container">
+                {% for post in reversed_posts %}
+                    <div>
+                        <a href="{{site.baseurl}}{{post.url}}" aria-label="{{post.title}}">
+                            <h2>{{ post.title }}</h2>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endif %}
     </div>
 </div>
