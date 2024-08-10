@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Jekyll Gitbook Theme
+title: Martin Funkquist - AI Researcher
 permalink: /
 ---
 
