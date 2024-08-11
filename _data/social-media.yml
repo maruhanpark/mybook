@@ -1,0 +1,23 @@
+email:
+  id: 'martin.funkquist@liu.se'
+  href: 'mailto:'
+  title: 'Email'
+  fa-icon: 'fa-envelope-square'
+
+twitter:
+  id: 'MartinFunkquist'
+  href: 'https://www.twitter.com/'
+  title: 'Twitter'
+  fa-icon: 'fa-twitter-square'
+
+github:
+  id: 'Martin36'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fa-github-square'
+
+linkedin:
+  id: 'martin-funkquist-534a49b3'
+  href: 'https://www.linkedin.com/in/martin-funkquist-534a49b3/'
+  title: 'LinkedIn'
+  fa-icon: 'fa-linkedin-square'
