@@ -223,28 +223,28 @@ In this lab, we will configure all the required elements to collect and view end
 
 ### Overview of the Lab
 
-In this lab, we will understand what is the Customer Journey Data Services (JDS) feature, how we can set it up and configure it in the Control Hub and how to enable the JDS Desktop widget for agents. Furthermore, we will see the Customer Journey Widget in action from an agent perspective and we will delve into all the API capabilities that the features offers.
+In this lab, we will understand what is the **Customer Journey Data Services (JDS)** feature, how we can set it up and configure it in the Control Hub and how to enable the JDS Desktop widget for agents. Furthermore, we will see the Customer Journey Widget in action from an agent perspective and we will delve into all the API capabilities that the features offers.
 
-Finally, we will become familiar with the JDS Use Case library that Cisco has created to showcase how JDS can help you take your customers' journey to the next level.
+Finally, we will become familiar with the **JDS Use Case library** that Cisco has created to showcase how JDS can help you take your customers' journey to the next level.
 
 ### Lab Objective
 
 At the end of this lab, you will be able to:
 
-- Enable JDS feature and the Customer Journey Widget in your tenant.
-- Create and manipulate an end-user database with your customer information.
-- Add the Customer Journey Widget to your Agent Desktop and take advantage of it during a customer interaction.
-- Utilize the JDS APIs to enhance the customer journey experience with additional insights & actions.
+- **Enable JDS feature** and the Customer Journey Widget in your tenant.
+- Create and manipulate an **end-user database** with your customer information.
+- Add the **Customer Journey Widget** to your Agent Desktop and take advantage of it during a customer interaction.
+- Utilize the **JDS APIs** to enhance the customer journey experience with additional insights & actions.
 
 ### Pre-requisites
 
 1.  You have **completed** `Lab 1 - Admin Experience`:
     - You are familiar with Control Hub and navigation within Control Hub, logging in as an administrator.
 2.  You have **completed** `Lab 2 - IVR Contact Routing`:
-    - You are familiar with creating and modifying flows
+    - You are familiar with creating and modifying flows.
 3.  You have **completed** `Lab 3 - Agent Desktop`:
     - You are familiar with logging in as an Agent and accepting inbound interactions.
-    - You are familiar with creating a custom Desktop Layout
+    - You are familiar with creating a custom Desktop Layout.
 4.  You have **Webex Calling installed** in your device and can make calls to the contact center.
 
 ### Quick Links
@@ -252,18 +252,22 @@ At the end of this lab, you will be able to:
 > Control Hub: **[https://admin.webex.com](https://admin.webex.com){:target="\_blank"}**\
 > Portal: **[https://portal.wxcc-us1.cisco.com/](https://portal.wxcc-us1.cisco.com/){:target="\_blank"}**\
 > Agent Desktop: **[https://desktop.wxcc-us1.cisco.com](https://desktop.wxcc-us1.cisco.com){:target="\_blank"}**\
-> Developer Portal: **[https://developer.webex-cx.com/documentation/getting-started](https://developer.webex-cx.com/documentation/getting-started){:target="\_blank"}**\
+> Developer Portal: **[https://developer.webex-cx.com/documentation/getting-started](https://developer.webex-cx.com/documentation/getting-started){:target="\_blank"}**
 
 ## JDS Feature Overview
 
 CJDS is an API-first service that enables organizations to:
 
-- `Listen`: Integrate with any data source or third-party applications to listen to disparate data sources (e.g. customer called Support ...).
-- `Identify`: Create a dynamic customer profile capturing propensity drivers, such as a customer's preferred mode of communication or preferred language (e.g. how many times has the customer contacted us in the last week?...).
-- `Analyze`: Apply different aggregation techniques to all customer data collected (e.g. What is the CSAT score of the customer interaction? Is he using telephony,chat or other channel to contact? ...).
-- `Act`: Use the data and insights within CJDS to dynamically change the flow within Webex Contact Center Flow Control and personalize the customer experience at a granular level. These insights are visible to customer-facing teams in real time through Agent Desktop. (e.g. bypass normal queue when customer calls for the third time in 24 hours and offer premium support...)
+- `Listen`: Integrate with any data source or third-party applications to listen to disparate data sources (_e.g. customer
+  called Support_).
+- `Identify`: Create a dynamic customer profile capturing propensity drivers, such as a customer's preferred mode of communication or preferred language (_e.g. how many times has the customer contacted us in the last week in each channel?_).
+- `Analyze`: Apply different aggregation techniques to all customer data collected (_e.g. What is the CSAT score of the customer interaction? Is he using telephony,chat or other channel to contact?_).
+- `Act`: Use the data and insights within CJDS to dynamically change the flow within Webex Contact Center Flow Control and personalize the customer experience at a granular level. These insights are visible to customer-facing teams in real time through Agent Desktop. (_e.g. bypass normal queue when customer calls for the third time in 24 hours and offer premium support_).
 
-A comprehensive summary of the feature is available in the [Developer Portal](https://developer.webex-cx.com/documentation/guides/journey---getting-started), where you can find all the vital information & step-by-step guide to enable JDS for the first time in your own tenant. CJDS is currently in `Limited Availability` for **US and EMEA based tenants** only. Rest of the regions (ANZ, Canada, Japan, Singapore) are expected to come within the year.
+A comprehensive summary of the feature is available in the [Developer Portal](https://developer.webex-cx.com/documentation/guides/journey---getting-started), where you can find all the vital information & step-by-step guide to enable JDS for the first time in your own tenant.
+
+> CJDS is currently in `Limited Availability` for **US and EMEA based tenants** only. Rest of the regions (ANZ, Canada, Japan, Singapore) are expected to come within the year.
+> {: .block-warning }
 
 ## Setup JDS
 
@@ -297,18 +301,20 @@ The customer Journey widget provides a single pane of glass view to the customer
 
 2. Select `Identities`. Click on `Add identities`.
 
-![jdsaddidentities](/assets/images/JDS/jds_add_identities.png)
+   ![jdsaddidentities](/assets/images/JDS/jds_add_identities.png)
 
 3. Download the sample template.
 
-![uploadcsvjds](/assets/images/JDS/upload_csv_jds.png)
+   ![uploadcsvjds](/assets/images/JDS/upload_csv_jds.png)
 
-4. In CSV file download, add the Customer identities [First Name,Last Name,Email Addresses,Phone Numbers,Customers Ids]
-   Each customer identity must have at least an email address, phone number, or customer ID or else the CSV file will return an error.
-   If you want to add multiple email addresses, phone numbers or customer IDs, you need to use the pipe “|” delimiter between them. For example, try to add your phone number both with and without a plus sign
-   For the Id column, make sure to leave each row empty. When you upload the CSV file, this field will auto-generate
+4. In CSV file download, add the Customer identities [First Name,Last Name,Email Addresses,Phone Numbers,Customers Ids].
 
-![jdscreatedcsv](/assets/images/JDS/jds_created_csv.png)
+   Each customer identity must have **at least** an email address, phone number, or customer ID or else the CSV file will return an error.
+   If you want to add **multiple** email addresses, phone numbers or customer IDs, you need to **use the pipe “|” delimiter** between them. For example, try to add your phone number both with and without a plus sign
+
+   For the **Id column**, make sure to leave each row empty. When you upload the CSV file, this field will auto-generate.
+
+   ![jdscreatedcsv](/assets/images/JDS/jds_created_csv.png)
 
 5. Upload the **CSV file** that you created for customer identities, and then click `Next`.
 
@@ -316,13 +322,13 @@ The customer Journey widget provides a single pane of glass view to the customer
 
 ### Enable customer journey widget on an agent desktop
 
-1. Download the following Desktop Layout JSON file [JDSDesktopLayout](/assets/files//JDSDesktopLayout10.json)
+1. Download the following Desktop Layout JSON file [JDSDesktopLayout](/assets/files//JDSDesktopLayout10.json).
 
-- If you are interested in adding the CJDS Widget to your existing desktop layout, get below code snippet
+- If you are interested in adding the CJDS Widget to your existing desktop layout in your own tenant, get below code snippet:
 
-CJDS Widget Code Block
+**CJDS Widget Code Block**
 
-```json
+```
           {
             "comp": "md-tab",
             "attributes": {
@@ -365,29 +371,29 @@ CJDS Widget Code Block
           },
 ```
 
-Here is a screenshot of the block in place (notice it is after IVR_TRASNCRIPT and before WXM_JOURNEY_TAB).
+2. Here is a screenshot of the block in place (notice it is after `IVR_TRASNCRIPT` and before `WXM_JOURNEY_TAB`).
 
-![JDSWidgetCode](/assets/images/JDS/JDS_Widget_Code.png)
+   ![JDSWidgetCode](/assets/images/JDS/JDS_Widget_Code.png)
 
-2. Sign in to Control Hub and go to `Contact Center > Desktop Layouts`.
+3. Sign in to Control Hub and go to `Contact Center > Desktop Layouts`.
 
-3. Create a new Layout.
+4. Create a new Layout.
 
-4. Assign an agent team.
+5. Assign an Agent Team.
 
-5. Upload the Desktop Layout JSON file that you downloaded in step 1.
+6. Upload the Desktop Layout JSON file that you downloaded in step 1.
 
-6. Click `Save`.
+7. Click `Save`.
 
 ### View customer journey widget on an Agent desktop
 
 1. Login as an Agent into Agent Desktop.
 
-2. On Accepting an incoming request,CJDS Widget will appear in the right hand side
+2. On Accepting an incoming request, CJDS Widget will appear in the right hand side.
 
 The widget displays insights such as the number of times the customer has called or was contacted across all channels during a given duration. It also displays the channel history with wrap-up code, queue name, agent ID, and so on, and customizable event history such as third-party events and custom icons.
 
-The progressive profile allows for alignment of different phone numbers and emails under one profile, ensuring accurate and comprehensive interaction data
+The progressive profile allows for alignment of different phone numbers and emails under one profile, ensuring accurate and comprehensive interaction data.
 
 ![JDSWidgetDesktop](/assets/images/JDS/JDS_Widget_Desktop.png)
 
