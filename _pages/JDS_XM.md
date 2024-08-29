@@ -280,13 +280,13 @@ A comprehensive summary of the feature is available in the [Developer Portal](ht
 
    b. Enter the number of days that you want to retain data in CJDS
 
-c. Click `Save`
+4. Click `Save`
 
 ![jdsprov](/assets/images/JDS/Provision_JDS.gif)
 
 
 > `Note:` JDS is already provisioned in this lab tenant.You may follow the above steps when provisioning for your tenant.
-> {: .block-warning }
+> 
 
 
 ## Setup Desktop Customer Journey Widget
@@ -295,7 +295,7 @@ The customer Journey widget provides a single pane of glass view to the customer
 
 ### Create a journey project and Activate Webex Contact Center connector
 
-Journey projects help organizations manage multiple data sources. Each journey project has a unique identifier which is required to leverage CJDS APIs payloads. Note that project IDs in Control Hub are referred to as workspace IDs in APIs.
+`Journey projects` help organizations manage multiple data sources. Each journey project has a unique identifier which is required to leverage CJDS APIs payloads. Note that `project IDs` in Control Hub are referred to as `workspace IDs` in APIs.
 Jouney project may be activated with the  `Webex Contact Center connector` This allows the journey project to capture all customer events and send it to CJDS from Contact Center. Once the connector is activated in one project, it cannot be activated in another. At any point in time, it can be enabled for only one project
 
 1. Sign in to **Control Hub** and go to `Customer Journey Data > Journey projects`.
@@ -347,7 +347,7 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 ![jdsuploadwidget](/assets/images/JDS/jds_upload_widget.gif)
 
 > `Note:` If you are interested in adding the CJDS Widget to your existing desktop layout in your own tenant, use the below code snippet.
-> {: .block-warning }
+> 
 
 **CJDS Widget Code Block**
 
@@ -399,13 +399,13 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 ### View customer journey widget on an Agent desktop
 
-1. Login as an Agent into Agent Desktop. Ensure the desktop layout of Agent's Team has JDS Widget configured in previous steps
+1. Login as an Agent into Agent Desktop. Ensure that `desktop layout` of Agent's Team has `JDS Widget` configured in previous steps
 
-2. On Accepting an incoming request CJDS Widget will appear in the desktop.
+2. On Accepting an incoming request `CJDS Widget` will appear in the desktop.
 
-The widget displays insights such as the number of times the customer has called or was contacted across all channels during a given duration. It also displays the channel history with wrap-up code, queue name, agent ID, and so on, and customizable event history such as third-party events and custom icons.
+The widget displays insights such as the number of times the customer has called or was contacted across all channels during a given duration. It also displays the journey history with `wrap-up code`, `queue name`, `agent ID`, and so on, and customizable event history such as third-party events and custom icons.
 
-The progressive profile allows for alignment of different phone numbers and emails under one profile, ensuring accurate and comprehensive interaction data.
+The `progressive profile` allows for alignment of different phone numbers and emails under one profile, ensuring accurate and comprehensive interaction data.
 
 ![JDSWidgetDesktop](/assets/images/JDS/jds_desktop_widget.gif)
 
