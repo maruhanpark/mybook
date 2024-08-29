@@ -266,29 +266,26 @@ CJDS is an API-first service that enables organizations to:
 
 A comprehensive summary of the feature is available in the [Developer Portal](https://developer.webex-cx.com/documentation/guides/journey---getting-started), where you can find all the vital information & step-by-step guide to enable JDS for the first time in your own tenant.
 
-> CJDS is currently in `Limited Availability` for **US and EMEA based tenants** only. Rest of the regions (ANZ, Canada, Japan, Singapore) are expected to come within the year.
-> {: .block-warning }
+
 
 ## Provision JDS 
 
-1. You need to fill out this [form](https://app.smartsheet.com/b/form/7776df72239e47d0bbb73a392e32927f) to get CJDS enabled, as it **not** by default enabled in all tenants in the Limited Availability regions. If applicable, please work together with your CSM to ensure a smooth process and enablement.Post the initial request, the Cisco team will provision the CJDS instance  within 72 hours
+1. You need to fill out this [form](https://app.smartsheet.com/b/form/7776df72239e47d0bbb73a392e32927f) to have CJDS provisioned for your tenant enabled, as it **not**  enabled by default . If applicable, please work together with your CSM to ensure a smooth process and enablement.Post the initial request, the Cisco team will provision the CJDS instance  within 72 hours
 
 2. When JDS is provisioned for the tenant, `Customer Journey Data` tab appears in the Control Hub
 
-![jdschtab](/assets/images/JDS/jds_ch_tab.png)
-
 3. You can set how long to retain data that's captured for CJDS. We recommend that you keep a minimum of 180 days to make sure that there are sufficient end-user journey data. By default, data is retained for 365 days
 
-a. Sign in to Control Hub and go to `Customer Journey Data` > `Settings`
+   a. Sign in to Control Hub and go to `Customer Journey Data` > `Settings`
 
-b. Enter the number of days that you want to retain data for CJDS
+   b. Enter the number of days that you want to retain data in CJDS
 
 c. Click `Save`
 
 ![jdsprov](/assets/images/JDS/Provision_JDS.gif)
 
 
-> `Note:` JDS is already provisioned in this lab tenant You may follow the above steps when provisioning for your tenant.
+> `Note:` JDS is already provisioned in this lab tenant.You may follow the above steps when provisioning for your tenant.
 > {: .block-warning }
 
 
@@ -349,7 +346,7 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 ![jdsuploadwidget](/assets/images/JDS/jds_upload_widget.gif)
 
-> `Note:` If you are interested in adding the CJDS Widget to your existing desktop layout in your own tenant, get below code snippet.
+> `Note:` If you are interested in adding the CJDS Widget to your existing desktop layout in your own tenant, use the below code snippet.
 > {: .block-warning }
 
 **CJDS Widget Code Block**
@@ -402,7 +399,7 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 ### View customer journey widget on an Agent desktop
 
-1. Login as an Agent into Agent Desktop. Ensure the desktop layout of Agent Team has JDS Widget configured in previous steps
+1. Login as an Agent into Agent Desktop. Ensure the desktop layout of Agent's Team has JDS Widget configured in previous steps
 
 2. On Accepting an incoming request CJDS Widget will appear in the desktop.
 
