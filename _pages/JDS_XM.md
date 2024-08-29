@@ -270,7 +270,7 @@ A comprehensive summary of the feature is available in the [Developer Portal](ht
 
 ## Provision JDS 
 
-1. You need to fill out this [form](https://app.smartsheet.com/b/form/7776df72239e47d0bbb73a392e32927f) to have CJDS provisioned for your tenant enabled, as it **not**  enabled by default . If applicable, please work together with your CSM to ensure a smooth process and enablement.Post the initial request, the Cisco team will provision the CJDS instance  within 72 hours
+1. `Fill out` this [form](https://app.smartsheet.com/b/form/7776df72239e47d0bbb73a392e32927f) to have CJDS provisioned for your tenant enabled, as it **not**  enabled by default . If applicable, please work together with your CSM to ensure a smooth process and enablement.Post the initial request, the Cisco team will provision the CJDS instance  within 72 hours
 
 2. When JDS is provisioned for the tenant, `Customer Journey Data` tab appears in the Control Hub
 
@@ -278,7 +278,7 @@ A comprehensive summary of the feature is available in the [Developer Portal](ht
 
    a. Sign in to Control Hub and go to `Customer Journey Data` > `Settings`
 
-   b. Enter the number of days that you want to retain data in CJDS
+   b. Enter the **number of days** that you want to retain data in CJDS
 
 4. Click `Save`
 
@@ -304,7 +304,7 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 3. Enter a **name** and a **description** for the journey project.
 
-4. Select the journey project that you created in previous step.
+4. Select the `journey project` that you created in previous step.
 
 5. Toggle the `Activate` connector in the Webex Contact Center section to on.
 
@@ -312,7 +312,7 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 ### Add user identities to a journey project.
 
-1. Select the journey project for which connector was activated.
+1. Select the `journey project` for which connector was activated.
 
 2. Select `Identities`. Click on `Add identities`.
 
@@ -324,7 +324,9 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
    For the **Id column**, make sure to leave each row empty. When you upload the CSV file, this field will auto-generate.
 
-   ![jdscreatedcsv](/assets/images/JDS/jds_created_csv.png)5. Upload the **CSV file** that you created for customer identities, and then click `Next`.
+   ![jdscreatedcsv](/assets/images/JDS/jds_created_csv.png)
+   
+5. Upload the **CSV file** that you created for customer identities, and then click `Next`.
 
 6. If the CSV file is valid, a window appears to show you if the import was successful. Once you're done, select `Close`. You should see a list of all the uploaded customer identities.
 
@@ -336,9 +338,9 @@ Jouney project may be activated with the  `Webex Contact Center connector` This 
 
 2. Sign in to Control Hub and go to `Contact Center > Desktop Layouts`.
 
-3. Create a new Layout.
+3. Create a `new Layout`.
 
-4. Assign an Agent Team.
+4. Assign an `Agent Team`.
 
 5. Upload the Desktop Layout JSON file that you downloaded in step 1.
 
