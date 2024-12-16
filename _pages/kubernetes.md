@@ -4,7 +4,7 @@ author: Kirill Kuklin
 date: 2024-12-15
 category: k8s
 layout: post
-# cover: ../assets/surf2.svg
+cover: ../assets/k8s-probes.gif
 ---
 
 # Readiness Probes
@@ -85,6 +85,116 @@ readinessProbe:
 
 In this example, the pod is considered ready if the file `/tmp/ready` exists.
 
-## Final Thoughts 🤔
+## Kubernetes configuration linting tools
 
-Readiness probes are like polite gatekeepers: they only let traffic through when your application is truly ready. Use them to make your deployments more reliable, your users happier, and your own stress levels lower. After all, why deal with unnecessary chaos when you can configure it all properly? 😊
+### Introduction to Infrastructure as Code Validation
+
+One of the benefits of Infrastructure as Code (IaC) is that the proposed desired state specification can be validated before it is applied to the live system. The same is true for Kubernetes configuration.
+
+Checking the proposed desired state is generally easier with Kubernetes configuration tools than with other Infrastructure as Code tools because the configuration can be fully rendered to the representation that will be applied to the Kubernetes API, which makes specified properties explicit. Additionally, the `kubectl` flag `--dry-run=server` can be used to discover values set by default and values set by mutating admission control.
+
+### Admission Control Validation
+
+Admission control can be used to vet Kubernetes resources with tools like:
+- Kyverno (5800 GitHub stars)
+- Polaris (3200 stars)
+- OPA Gatekeeper (3700 stars)
+
+These tools generally have ways to be applied outside the cluster as well. Kubernetes CEL-based validating admission policies are still relatively new, so it remains to be seen how many users can meet all of their policy needs with that mechanism. However, Kyverno has already adapted by generating validating admission policies.
+
+### Live Cluster State Scanning Tools
+
+Some tools scan the live states of clusters, such as:
+- Popeye (5300 GitHub stars)
+- Clusterlint (500 stars)
+
+Note: These are not the primary focus of this document.
+
+### Schema Validation
+
+#### Kubeconform
+The most recommended tool was kubeconform (2300 GitHub stars), which performs resource schema validation using the OpenAPI specs published by Kubernetes. It:
+- Checks resource types and attributes
+- Catches typos and YAML indentation errors
+- Helpful in the age of LLM hallucinations
+
+Example of a simple schema validation process would involve running kubeconform on your Kubernetes configuration files.
+
+#### Custom Policies
+
+##### Kyverno Policy Example
+Here's an example of a Kyverno policy to prevent workload controllers from running in the default namespace:
+
+```yaml
+spec:
+  validationFailureAction: audit
+  background: true
+  rules:
+  - name: validate-podcontroller-namespace
+    match:
+      any:
+      - resources:
+          kinds:
+          - DaemonSet
+          - Deployment
+          - Job
+          - StatefulSet
+    validate:
+      message: "Using 'default' namespace is not allowed for pod controllers."
+      pattern:
+        metadata:
+          namespace: "!default"
+```
+
+### Popular Custom Policy Tools
+
+1. **Kyverno** (Kubernetes-specific)
+2. **Polaris** (Kubernetes-specific)
+3. **Checkov** (7100 GitHub stars, not Kubernetes-specific but has many K8s checks)
+
+### Additional Policy-as-Code Tools
+
+- Trivy (23700 GitHub stars)
+- Conftest (2900 GitHub stars)
+- OpenRewrite (2200 GitHub stars)
+
+#### Rego Policy Example
+An example of a Rego policy for service validation:
+
+```rego
+deny[explanation] {
+ input.request.kind.kind == "Service"
+ input.request.operation == "CREATE"
+ loadbalancer.is_external_lb
+ namespace := input.request.namespace
+ name := input.request.object.metadata.name
+ not whitelisted[{"name": name, "namespace": namespace}]
+ explanation = sprintf("Service %v/%v is an external load balancer but has not been whitelisted", [namespace, name])
+}
+```
+
+### Best Practices Tools
+
+- KubeLinter (3000 GitHub stars)
+- kube-score (2800 stars)
+
+#### Example KubeLinter Output
+```
+pod.yaml: (object: <no namespace>/security-context-demo /v1, Kind=Pod) container "sec-ctx-demo" does not have a 
+read-only root file system (check: no-read-only-root-fs, remediation: Set readOnlyRootFilesystem to true in your 
+container's securityContext.)
+```
+
+### Dashboards
+
+- Polaris Dashboard
+- Kubescape Lens Extension (10200 GitHub stars)
+- Monokle (1800 stars)
+- Kubevious (1600 stars)
+
+### Special Purpose Tools
+
+- Pluto: Check for deprecated API versions
+- istioctl: Validate Istio configuration
+- helm lint: Lint Helm charts
+- argo lint: Validate Argo workflows
