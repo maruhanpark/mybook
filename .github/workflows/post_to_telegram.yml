@@ -1,18 +1,20 @@
-name: Notify Telegram on PR Merge
+name: Notify Telegram on Push
 
 on:
-  pull_request:
-    types:
-      - closed  # This triggers the workflow when a PR is closed
+  push:
+    branches:
+      - gh-pages
 
 jobs:
   notify-telegram:
-    if: github.event.pull_request.merged == true  # Runs only if PR was merged
     runs-on: ubuntu-latest
 
     steps:
       - name: Send message to Telegram
         run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          AUTHOR=$(git log -1 --pretty=format:'%an')
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-          -d text="🚀 PR #${{ github.event.pull_request.number }} has been merged to *${{ github.repository }}* by ${{ github.actor }}! 🎉"
+          -d text="🚀 New commit pushed to *${{ github.repository }}*:\n\n*Author*: ${AUTHOR}\n*Message*: ${COMMIT_MESSAGE}\n\n🔗 [View commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})" \
+          -d parse_mode="Markdown"
