@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Send message to Telegram
       - name: Send message to Telegram
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
