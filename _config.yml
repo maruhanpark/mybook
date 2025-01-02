@@ -1,16 +1,16 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
+title:            Karlin
+longtitle:        Karlin C2
 author:           HE Tao
-email:            sighingnow@gmail.com
+email:            bk@gmail.com
 description: >
   Build Jekyll site with the GitBook style.
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+url:              'https://BKLockly.github.io'
+baseurl:          '/home'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
