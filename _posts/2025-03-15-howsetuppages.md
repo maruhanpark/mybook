@@ -7,3 +7,4 @@ layout: post
 ---
 ![alt text](image-1.png)
 Create github repo and select "import repository" and add https://github.com/sighingnow/jekyll-gitbook
+VS code keyboard shortcut: Ctrl+K -> Ctrl+S
