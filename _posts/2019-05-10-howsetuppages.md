@@ -1,7 +1,7 @@
 ---
 title: Steps to set up pages
 author: Maruhan Park
-date: 2025-03-15
+date: 2019-05-10
 category: Jekyll
 layout: post
 ---
